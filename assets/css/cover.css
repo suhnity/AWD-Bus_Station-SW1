@@ -1,0 +1,32 @@
+.cover {
+    position: relative;
+    top: 5.5rem;
+    margin-right: -19px;
+    margin-left: -9px;
+    width: 101.1%;
+    overflow: hidden;
+}
+
+.bus_cover {
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.cover_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.984);
+    text-align: center;
+    font-family: 'cantora one', serif;
+    z-index: 1;
+    padding: 1rem;
+    max-width: 45rem;
+    min-width: 45rem;
+    -webkit-text-stroke: .1px rgba(0, 0, 0, 0.131);
+}
