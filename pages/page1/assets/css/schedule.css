@@ -1,0 +1,71 @@
+.schedule_procedure {
+    top: 100px;
+    margin-top: -17px;
+    margin-left: -8px;
+    margin-right: -8px;
+    height: 538px;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #e2d182 0%, #e0dc61 100%);
+    padding-left: 5%;
+}
+
+#schedule_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#schedule_table th, #schedule_table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#schedule_table th {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+#schedule_table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#schedule_table tr:hover {
+    background-color: #ddd;
+}
+
+.book_btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.book_btn:hover {
+    background-color: #45a049;
+}
+
+#route_display, #departure_date, #passenger_display {
+    font-style: 1.2em;
+    margin: 10px 0;
+}
+
+#passenger-count {
+    font-style: 1.2em;
+    margin: 0 10px;
+}
+
+#increase, #decrease {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#increase:hover, #decrease:hover {
+    background-color: #45a049;
+}
