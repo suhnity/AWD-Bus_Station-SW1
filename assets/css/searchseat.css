@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: ; linear-gradient(to right, #170f52 0%, #0c0a39 100%);
+    background: linear-gradient(to right, #170f52 0%, #0c0a39 100%);
     padding-left: 5%;
 }
 
@@ -163,7 +163,7 @@ pre {
 }
 
 .current-date {
-    background-color: #clc954;
+    background-color: #c1c954;
     color: white;
     font-weight: bold;
     border-radius: 50%;
