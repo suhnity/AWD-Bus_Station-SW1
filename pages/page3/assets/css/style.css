@@ -144,7 +144,7 @@
 }
 
 .payment-contain {
-    background-color: white;
+    background-color: rgb(255, 253, 196);
     padding: 20px;
     border-radius: 8px;
     width: 300px;
@@ -165,17 +165,18 @@
 #paymentAmount {
     padding: 8px;
     width: 100%;
+    max-width: 280px;
 }
 
 #confirmPayment {
     padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #f1c149;
+    color: rgb(249, 211, 162);
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 #confirmPayment:hover {
-    background-color: #45a049;
+    background-color: #bf710b;
 }

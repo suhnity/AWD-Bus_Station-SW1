@@ -2,7 +2,7 @@
     margin-left: -10px;
     margin-right: -10px;
     height: 20rem;
-    background-color: black;
+    background: linear-gradient(to left, #c54e1a 0%, #cb812b 59%);
     color: white;
     display: flex;
     justify-content: center;
