@@ -88,51 +88,20 @@
 
     </div>
 
-<div class="payment_popup">
-    <div class="payment-contain">
-        <div class="payment-header">
-            <h1>Payment</h1>
-        </div>
-        <div class="payment-form">
-            <form action="#">
-                <div class="input-box">
-                    <label><span class="asterisk">*</span> Card Number:</label>
-                    <input required placeholder="Enter card number" type="text" id="card-number">
-                </div>
-                <div class="input-box">
-                    <label><span class="asterisk">*</span> Expiry Date:</label>
-                    <input required placeholder="Enter expiry date" type="text" id="expiry-date">
-                </div>
-                <div class="input-box">
-                    <label><span class="asterisk">*</span> CVV:</label>
-                    <input required placeholder="Enter CVV" type="text" id="cvv">
-                </div>
-                <div class="input-box">
-                    <label><span class="asterisk">*</span> Name on Card:</label>
-                    <input required placeholder="Enter name on card" type="text" id="name-on-card">
-                </div>
-                <div class="input-box">
-                    <label><span class="asterisk">*</span> Billing Address:</label>
-                    <input required placeholder="Enter billing address" type="text" id="billing-address">
-                </div>
-                <div class="input-box">
-                    <label><span class="asterisk">*</span> City:</label>
-                    <input required placeholder="Enter city" type="text" id="city">
-                </div>
-                <div class="input-box">
-                    <label><span class="asterisk">*</span> Zip Code:</label>
-                    <input required placeholder="Enter zip code" type="text" id="zip-code">
-                </div>
-                <div class="input-box">
-                    <label><span class="asterisk">*</span> Country:</label>
-                    <input required placeholder="Enter country" type="text" id="country">
-                </div>
-                <button type="button" class="back_button">Back</button>
-                <button type="button" class="next_button">Next</button>
-            </form>
+    <div class="payment_popup">
+        <div class="payment-contain">
+            <div class="payment-header">
+                <h1>Payment</h1>
+            </div>
+            <div class="payment-body">
+                <p>Total: <span id="totalPrice"></span></p>
+                <label for="paymentAmount">Enter amount to pay:</label>
+                <input type="number" id="paymentAmount" placeholder="Enter amount">
+                <button id="confirmPayment">Confirm Payment</button>
+            </div>
         </div>
     </div>
-</div>
+
 
 </section>
 
