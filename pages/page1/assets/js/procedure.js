@@ -23,19 +23,19 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats")) || [];
     const seatsBus1 = document.querySelector(".seats.bus1");
     const seatsBus2 = document.querySelector(".seats.bus2");
     const seatsBus3 = document.querySelector(".seats.bus3");
 
     function updateAvailableSeats() {
-        const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats")) || [];
-        const bus1AvailableSeats = 20 - selectedSeats.filter(seat => seat.bus === "bus1").length;
-        const bus2AvailableSeats = 20 - selectedSeats.filter(seat => seat.bus === "bus2").length;
-        const bus3AvailableSeats = 20 - selectedSeats.filter(seat => seat.bus === "bus3").length;
+        const bus1AvailableSeats = 20 - selectedSeats.length;
+        const bus2AvailableSeats = 20 - selectedSeats.length;
+        const bus3AvailableSeats = 20 - selectedSeats.length;
 
-        seatsBus1.textContent = bus1AvailableSeats;
-        seatsBus2.textContent = bus2AvailableSeats;
-        seatsBus3.textContent = bus3AvailableSeats;
+        seatsBus1.textContent = `${bus1AvailableSeats}`;
+        seatsBus2.textContent = `${bus2AvailableSeats}`;
+        seatsBus3.textContent = `${bus3AvailableSeats}`;
     }
 
     updateAvailableSeats();
