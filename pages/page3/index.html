@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Bus Station</title>
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../assets/css/scroll.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantora+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="logo">
+            <img src="../../assets/img/bus_image.png" alt="Aire Liner Logo">
+        </div>
+        <div class="web_name">
+            <a href="../../index.html"><h2>AIRE LINER</h2></a>
+        </div>
+        <div class="menu_button">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox" class="toggle">
+                <div class="bar bar--top"></div>
+                <div class="bar bar--middle"></div>
+                <div class="bar bar--bottom"></div>
+            </label>
+        </div>
+    </div>
+</header>
+
+<section class="booking_procedure">
+
+    <div class="container">
+
+        <div class="header-text">
+            <h1>Pick a seat</h1>
+        </div>
+
+        <div class="card">
+            <div class="seat-grid">
+
+                <div class="row">
+                    <div class="seat" data-index="0"></div>
+                    <div class="seat" data-index="1"></div>
+                    <div class="seat" data-index="2"></div>
+                    <div class="seat" data-index="3"></div>
+                    <div class="seat" data-index="4"></div>
+                    <div class="seat" data-index="5"></div>
+                    <div class="seat" data-index="6"></div>
+                    <div class="seat" data-index="7"></div>
+                    <div class="seat" data-index="8"></div>
+                    <div class="seat" data-index="9"></div>
+                </div>
+
+                <div class="row">
+                    <div class="seat" data-index="10"></div>
+                    <div class="seat" data-index="11"></div>
+                    <div class="seat" data-index="12"></div>
+                    <div class="seat" data-index="13"></div>
+                    <div class="seat" data-index="14"></div>
+                    <div class="seat" data-index="15"></div>
+                    <div class="seat" data-index="16"></div>
+                    <div class="seat" data-index="17"></div>
+                    <div class="seat" data-index="18"></div>
+                    <div class="seat" data-index="19"></div>
+                </div>
+            </div>
+
+            <div class="seat-info">
+                <h5></h5>
+            </div>
+            <div class="seat-selected-info"></div>
+
+        </div>
+
+        <div class="button-container">
+            <a href="../page2/index.html"><button class="back_button">Back</button></a>
+            <button class="reserve_button">Reserve Seat</button>
+        </div>
+
+    </div>
+
+<div class="payment_popup">
+    <div class="payment-contain">
+        <div class="payment-header">
+            <h1>Payment</h1>
+        </div>
+        <div class="payment-form">
+            <form action="#">
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> Card Number:</label>
+                    <input required placeholder="Enter card number" type="text" id="card-number">
+                </div>
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> Expiry Date:</label>
+                    <input required placeholder="Enter expiry date" type="text" id="expiry-date">
+                </div>
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> CVV:</label>
+                    <input required placeholder="Enter CVV" type="text" id="cvv">
+                </div>
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> Name on Card:</label>
+                    <input required placeholder="Enter name on card" type="text" id="name-on-card">
+                </div>
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> Billing Address:</label>
+                    <input required placeholder="Enter billing address" type="text" id="billing-address">
+                </div>
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> City:</label>
+                    <input required placeholder="Enter city" type="text" id="city">
+                </div>
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> Zip Code:</label>
+                    <input required placeholder="Enter zip code" type="text" id="zip-code">
+                </div>
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> Country:</label>
+                    <input required placeholder="Enter country" type="text" id="country">
+                </div>
+                <button type="button" class="back_button">Back</button>
+                <button type="button" class="next_button">Next</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<footer class="footer_section">
+    <div class="footer_content">
+        <div class="footer_text">
+            <p>&copy; 2025 Aire Liner. All rights reserved.</p>
+        </div>
+        <div class="footer_links">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </div>
+</footer>
+
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
