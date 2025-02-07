@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+
+
 let display = document.querySelector(".display");
 let days = document.querySelector(".days");
 let previous = document.querySelector(".left");
@@ -32,189 +35,189 @@ let activeField = null;
 calendarContainer.style.display = "none";
 
 function toggleCalendar(field) {
-    activeField = field;
-    calendarContainer.style.display = "block";
+  activeField = field;
+  calendarContainer.style.display = "block";
+}
+
+function closeCalendar() {
+  calendarContainer.style.display = "none";
+}
+
+departButton.addEventListener("click", () => toggleCalendar("depart"));
+returnButton.addEventListener("click", () => toggleCalendar("return"));
+
+function displayCalendar() {
+  days.innerHTML = "";
+
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  const firstDayIndex = firstDay.getDay();
+  const numberOfDays = lastDay.getDate();
+
+  let formattedDate = date.toLocaleString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+
+  display.innerHTML = `${formattedDate}`;
+
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  const oneWeekLater = new Date(yesterday);
+  oneWeekLater.setDate(yesterday.getDate() + 7);
+
+  const yesterdayString = yesterday.toDateString();
+  const weekLaterString = oneWeekLater.toDateString();
+
+  for (let x = 1; x <= firstDayIndex; x++) {
+    const div = document.createElement("div");
+    div.innerHTML = "";
+    days.appendChild(div);
   }
 
-  function closeCalendar() {
-    calendarContainer.style.display = "none";
+  for (let i = 1; i <= numberOfDays; i++) {
+    let div = document.createElement("div");
+    let currentDate = new Date(year, month, i);
+
+    div.dataset.date = currentDate.toDateString();
+    div.innerHTML = i;
+
+    // Highlight current date
+    if (currentDate.toDateString() === new Date().toDateString()) {
+      div.classList.add("current-date");
+    }
+
+
+    if (currentDate < yesterday || currentDate > oneWeekLater) {
+      div.classList.add("disabled");
+      div.style.pointerEvents = "none";
+    }
+
+    div.addEventListener("mouseover", (e) => {
+      if (!e.target.classList.contains("disabled")) {
+        const hoveredDate = e.target.dataset.date;
+        selected.innerHTML = `Selected Date : ${formatDate(new Date(hoveredDate))}`;
+        e.target.classList.add("hover-highlight");
+      }
+    });
+
+    div.addEventListener("mouseout", (e) => {
+      e.target.classList.remove("hover-highlight");
+    });
+
+    div.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("disabled")) {
+        const selectedDate = e.target.dataset.date;
+        const formattedSelectedDate = formatDate(new Date(selectedDate));
+
+        if (activeField === "depart") {
+          departButton.innerHTML = formattedSelectedDate;
+        } else if (activeField === "return") {
+          returnButton.innerHTML = formattedSelectedDate;
+        }
+
+        closeCalendar();
+      }
+    });
+
+    days.appendChild(div);
   }
+}
 
-  departButton.addEventListener("click", () => toggleCalendar("depart"));
-  returnButton.addEventListener("click", () => toggleCalendar("return"));
-
-  function displayCalendar() {
-    days.innerHTML = "";
-
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    const firstDayIndex = firstDay.getDay();
-    const numberOfDays = lastDay.getDate();
-
-    let formattedDate = date.toLocaleString("en-US", {
-        month: "long",
-        year: "numeric",
-      });
-
-      display.innerHTML = `${formattedDate}`;
-
-      const yesterday = new Date();
-      yesterday.setDate(yesterday.getDate() - 1);
-      const oneWeekLater = new Date(yesterday);
-      oneWeekLater.setDate(yesterday.getDate() + 7);
-
-      const yesterdayString = yesterday.toDateString();
-      const weekLaterString = oneWeekLater.toDateString();
-
-      for (let x = 1; x <= firstDayIndex; x++) {
-        const div = document.createElement("div");
-        div.innerHTML = "";
-        days.appendChild(div);
-      }
-
-      for (let i = 1; i <= numberOfDays; i++) {
-        let div = document.createElement("div");
-        let currentDate = new Date(year, month, i);
-
-        div.dataset.date = currentDate.toDateString();
-        div.innerHTML = i;
-
-        if (currentDate.toDateString() === new Date().toDateString()) {
-          div.classList.add("current-date");
-        }
-
-        if (currentDate < yesterday || currentDate > oneWeekLater) {
-          div.classList.add("disabled");
-          div.style.pointerEvents = "none";
-        }
-
-        div.addEventListener("mouseover", (e) => {
-          if (!e.target.classList.contains("disabled")) {
-            const hoveredDate = e.target.dataset.date;
-            selected.innerHTML = `Selected Date : ${formatDate(new Date(hoveredDate))}`;
-            e.target.classList.add("hover-highlight");
-          }
-        });
-
-        div.addEventListener("mouseout", (e) => {
-            e.target.classList.remove("hover-highlight");
-          });
-
-          // Date selection logic
-          div.addEventListener("click", (e) => {
-            if (!e.target.classList.contains("disabled")) {
-              const selectedDate = e.target.dataset.date;
-              const formattedSelectedDate = formatDate(new Date(selectedDate));
-
-              if (activeField === "depart") {
-                departButton.innerHTML = formattedSelectedDate;
-              } else if (activeField === "return") {
-                returnButton.innerHTML = formattedSelectedDate;
-              }
-
-              closeCalendar();
-            }
-          });
-
-          days.appendChild(div);
-        }
-      }
-
-      function formatDate(date) {
-        const options = { month: 'short', day: 'numeric', year: 'numeric' };
-        return date.toLocaleDateString('en-US', options);
-      }
+function formatDate(date) {
+  const options = { month: 'short', day: 'numeric', year: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
+}
 
 previous.addEventListener("click", () => {
-    days.innerHTML = "";
-    selected.innerHTML = "";
+  days.innerHTML = "";
+  selected.innerHTML = "";
 
-    if (month < 0) {
-      month = 11;
-      year = year - 1;
-    }
-
-    month = month - 1;
-
-    date.setMonth(month);
-
-    displayCalendar();
-    displaySelected();
-  });
-
-  next.addEventListener("click", () => {
-    days.innerHTML = "";
-    selected.innerHTML = "";
-
-    if (month > 11) {
-      month = 0;
-      year = year + 1;
-    }
-
-    month = month + 1;
-    date.setMonth(month);
-
-    displayCalendar();
-    displaySelected();
-  });
-
-function displaySelected() {
-    const dayElements = document.querySelectorAll(".days div");
-    dayElements.forEach((day) => {
-      day.addEventListener("click", (e) => {
-        const selectedDate = e.target.dataset.date;
-        selected.innerHTML = `Selected Date: ${formatDate(new Date(selectedDate))}`;
-      });
-    });
+  if (month < 0) {
+    month = 11;
+    year = year - 1;
   }
+
+  month = month - 1;
+
+  date.setMonth(month);
 
   displayCalendar();
   displaySelected();
+});
 
-  document.addEventListener("click", (event) => {
-    if (!calendarContainer.contains(event.target) && !departButton.contains(event.target) && !returnButton.contains(event.target)) {
-      closeCalendar();
-    }
+next.addEventListener("click", () => {
+  days.innerHTML = "";
+  selected.innerHTML = "";
+
+  if (month > 11) {
+    month = 0;
+    year = year + 1;
+  }
+
+  month = month + 1;
+  date.setMonth(month);
+
+  displayCalendar();
+  displaySelected();
+});
+
+function displaySelected() {
+  const dayElements = document.querySelectorAll(".days div");
+  dayElements.forEach((day) => {
+    day.addEventListener("click", (e) => {
+      const selectedDate = e.target.dataset.date;
+      selected.innerHTML = `Selected Date: ${formatDate(new Date(selectedDate))}`;
+    });
+  });
+}
+
+displayCalendar();
+displaySelected();
+
+document.addEventListener("click", (event) => {
+  if (!calendarContainer.contains(event.target) && !departButton.contains(event.target) && !returnButton.contains(event.target)) {
+    closeCalendar();
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  let passengerCount = 1;
+  const passengerDisplay = document.getElementById("passenger-count");
+  const increaseBtn = document.getElementById("increase");
+  const decreaseBtn = document.getElementById("decrease");
+
+  function updatePassengerCount() {
+      localStorage.setItem("passengerCount", passengerCount);
+      passengerDisplay.textContent = passengerCount;
+  }
+
+  increaseBtn.addEventListener("click", function() {
+      if (passengerCount < 5) {
+          passengerCount++;
+          updatePassengerCount();
+      }
   });
 
-
-
-  document.addEventListener("DOMContentLoaded", function () {
-    let passengerCount = 1;
-    const passengerDisplay = document.getElementById("passenger-count");
-    const increaseBtn = document.getElementById("increase");
-    const decreaseBtn = document.getElementById("decrease");
-
-    function updatePassengerCount() {
-        localStorage.setItem("passengerCount", passengerCount);
-        passengerDisplay.textContent = passengerCount;
-    }
-
-    increaseBtn.addEventListener("click", function() {
-        if (passengerCount < 5) {
-            passengerCount++;
-            updatePassengerCount();
-        }
-    });
-
-    decreaseBtn.addEventListener("click", function() {
-        if (passengerCount > 1) {
-            passengerCount--;
-            updatePassengerCount();
-        }
-    });
-
-    if (!localStorage.getItem("passengerCount")) {
-        updatePassengerCount();
-    } else {
-        passengerCount = parseInt(localStorage.getItem("passengerCount"));
-        passengerDisplay.textContent = passengerCount;
-    }
+  decreaseBtn.addEventListener("click", function() {
+      if (passengerCount > 1) {
+          passengerCount--;
+          updatePassengerCount();
+      }
   });
 
+  if (!localStorage.getItem("passengerCount")) {
+      updatePassengerCount();
+  } else {
+      passengerCount = parseInt(localStorage.getItem("passengerCount"));
+      passengerDisplay.textContent = passengerCount;
+  }
+});
 
 
-  document.addEventListener("DOMContentLoaded", function() {
+
+document.addEventListener("DOMContentLoaded", function() {
     let passengerCount = 1;
     const passengerDisplay = document.getElementById("passenger-count");
     const increaseBtn = document.getElementById("increase");
@@ -285,44 +288,43 @@ document.querySelector(".search_button .button").addEventListener("click", funct
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const searchButton = document.querySelector(".search_button .button");
-  
-    searchButton.addEventListener("click", function(event) {
-        // Get selected values
-        const departure = document.getElementById("departure").value;
-        const destination = document.getElementById("destination").value;
-        const roundTrip = document.getElementById("roundTrip").checked;
-        const oneWay = document.getElementById("oneWay").checked;
-        const departDate = document.getElementById("depart-date").textContent.trim();
-        const returnDate = document.getElementById("return-date").textContent.trim();
-        const passengerCount = document.getElementById("passenger-count").textContent;
-  
-        localStorage.setItem("departure", departure);
-        localStorage.setItem("destination", destination);
-        localStorage.setItem("tripType", roundTrip ? "Round-trip" : "One-way");
-        localStorage.setItem("departDate", departDate);
-        localStorage.setItem("returnDate", returnDate);
-        localStorage.setItem("passengerCount", passengerCount);
-    });
+  const searchButton = document.querySelector(".search_button .button");
+
+  searchButton.addEventListener("click", function(event) {
+      const departure = document.getElementById("departure").value;
+      const destination = document.getElementById("destination").value;
+      const roundTrip = document.getElementById("roundTrip").checked;
+      const oneWay = document.getElementById("oneWay").checked;
+      const departDate = document.getElementById("depart-date").textContent.trim();
+      const returnDate = document.getElementById("return-date").textContent.trim();
+      const passengerCount = document.getElementById("passenger-count").textContent;
+
+      localStorage.setItem("departure", departure);
+      localStorage.setItem("destination", destination);
+      localStorage.setItem("tripType", roundTrip ? "Round-trip" : "One-way");
+      localStorage.setItem("departDate", departDate);
+      localStorage.setItem("returnDate", returnDate);
+      localStorage.setItem("passengerCount", passengerCount);
   });
+});
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const roundTrip = document.getElementById("roundTrip");
-    const oneWay = document.getElementById("oneWay");
-    const returnDate = document.getElementById("return-date");
+document.addEventListener("DOMContentLoaded", function() {
+  const roundTrip = document.getElementById("roundTrip");
+  const oneWay = document.getElementById("oneWay");
+  const returnDate = document.getElementById("return-date");
 
-    function toggleReturnDate() {
-        if (oneWay.checked) {
-            returnDate.style.pointerEvents = "none";
-            returnDate.style.opacity = "0.5";
-        } else {
-            returnDate.style.pointerEvents = "auto";
-            returnDate.style.opacity = "1";
-        }
-    }
+  function toggleReturnDate() {
+      if (oneWay.checked) {
+          returnDate.style.pointerEvents = "none";
+          returnDate.style.opacity = "0.5";
+      } else {
+          returnDate.style.pointerEvents = "auto";
+          returnDate.style.opacity = "1";
+      }
+  }
 
-    toggleReturnDate();
+  toggleReturnDate();
 
-    oneWay.addEventListener("change", toggleReturnDate);
-    roundTrip.addEventListener("change", toggleReturnDate);
-  });
+  oneWay.addEventListener("change", toggleReturnDate);
+  roundTrip.addEventListener("change", toggleReturnDate);
+});
