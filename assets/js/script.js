@@ -14,9 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-
-
 let display = document.querySelector(".display");
 let days = document.querySelector(".days");
 let previous = document.querySelector(".left");
@@ -48,7 +45,6 @@ returnButton.addEventListener("click", () => toggleCalendar("return"));
 
 function displayCalendar() {
   days.innerHTML = "";
-
   const firstDay = new Date(year, month, 1);
   const lastDay = new Date(year, month + 1, 0);
   const firstDayIndex = firstDay.getDay();
@@ -82,11 +78,9 @@ function displayCalendar() {
     div.dataset.date = currentDate.toDateString();
     div.innerHTML = i;
 
-    // Highlight current date
-    if (currentDate.toDateString() === new Date().toDateString()) {
+     if (currentDate.toDateString() === new Date().toDateString()) {
       div.classList.add("current-date");
     }
-
 
     if (currentDate < yesterday || currentDate > oneWeekLater) {
       div.classList.add("disabled");
@@ -128,6 +122,7 @@ function formatDate(date) {
   const options = { month: 'short', day: 'numeric', year: 'numeric' };
   return date.toLocaleDateString('en-US', options);
 }
+
 
 previous.addEventListener("click", () => {
   days.innerHTML = "";
@@ -181,7 +176,6 @@ document.addEventListener("click", (event) => {
   }
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   let passengerCount = 1;
   const passengerDisplay = document.getElementById("passenger-count");
@@ -214,8 +208,6 @@ document.addEventListener("DOMContentLoaded", function () {
       passengerDisplay.textContent = passengerCount;
   }
 });
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
     let passengerCount = 1;
