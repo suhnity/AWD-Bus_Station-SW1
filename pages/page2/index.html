@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Bus Station</title>
+    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="stylesheet" href="../../assets/css/scroll.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantora+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="logo">
+            <img src="../../assets/img/bus_image.png" alt="Aire Liner Logo">
+        </div>
+        <div class="web_name">
+            <a href="../../index.html"><h2>AIRE LINER</h2></a>
+        </div>
+        <div class="menu_button">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox" class="toggle">
+                <div class="bar bar--top"></div>
+                <div class="bar bar--middle"></div>
+                <div class="bar bar--bottom"></div>
+            </label>
+        </div>
+    </div>
+</header>
+
+<section class="info_procedure">
+    <section class="container">
+        <header>Passenger Information</header>
+        <form id="registration-form" class="form" action="#">
+            <div class="form-container">
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> First Name:</label>
+                    <input required placeholder="Enter first name" type="text" id="first-name">
+                </div>
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> Email:</label>
+                    <input required placeholder="Enter email" type="email" id="email">
+                </div>
+
+                <div class="input-box">
+                    <label>Middle Name:</label>
+                    <input placeholder="Enter middle name" type="text" id="middle-name">
+                </div>
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> Confirm Email:</label>
+                    <input required placeholder="Confirm email" type="email" id="confirm-email">
+                </div>
+
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> Last Name:</label>
+                    <input required placeholder="Enter last name" type="text" id="last-name">
+                </div>
+                <div class="input-box">
+                    <label><span class="asterisk">*</span> Mobile No.:</label>
+                    <input required placeholder="Enter mobile number" type="tel" id="mobile">
+                </div>
+
+                <div class="input-box">
+                    <label>City:</label>
+                    <input placeholder="Enter city" type="text" id="city">
+                </div>
+                <div class="input-box full-address">
+                    <label><span class="asterisk">*</span> Full Address:</label>
+                    <input required placeholder="Enter full address" type="text" id="full-address-input">
+                </div>
+
+            </div>
+            <a href="../page1/index.html"><button type="button" class="back_button">Back</button></a>
+            <button type="button" id="next-button" class="next_button">Next</button>
+        </form>
+    </section>
+</section>
+
+<footer class="footer_section">
+    <div class="footer_content">
+        <div class="footer_text">
+            <p>&copy; 2025 Aire Liner. All rights reserved.</p>
+        </div>
+        <div class="footer_links">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </div>
+</footer>
+
+<script src="./assets/js/script.js"></script>
+
+</body>
+</html>
