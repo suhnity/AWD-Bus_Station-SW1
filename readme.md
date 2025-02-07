@@ -4,23 +4,23 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/zyx-0314/">
+  <a href="https://github.com/suhnity/">
   <!-- TODO: If you want to add logo or banner you can add it here -->
-    <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
+    <img src="./assets/img/AireLiners_icon.png" alt="AirLiners Icon" width="130" height="100">
   </a>
 <!-- TODO: Change Title to the name of the title of your Project -->
-  <h3 align="center">Title</h3>
+  <h3 align="center">SW1 in Advance Web Design</h3>
 </div>
 <!-- TODO: Make a short description -->
 <div align="center">
-  Short Description. (Optional)
+  Gusto mo bang pumunta sa Baguio, Dagupan, o Zambales? Tara na!
 </div>
 
 <br />
 
 <!-- TODO: Change the zyx-0314 into your github username  -->
 <!-- TODO: Change the WD-Template-Project into the same name of your folder -->
-![](https://visit-counter.vercel.app/counter.png?page=zyx-0314/WD-Template-Project)
+![](https://visit-counter.vercel.app/counter.png?page=suhnity/AWD-Bus_Station-SW1)
 
 [![wakatime](https://wakatime.com/badge/user/018dd99a-4985-4f98-8216-6ca6fe2ce0f8/project/63501637-9a31-42f0-960d-4d0ab47977f8.svg)](https://wakatime.com/badge/user/018dd99a-4985-4f98-8216-6ca6fe2ce0f8/project/63501637-9a31-42f0-960d-4d0ab47977f8)
 
@@ -59,20 +59,15 @@
 
 <!-- TODO: To be changed -->
 <!-- The following are just sample -->
-Description of the project in details.
-
-Guiding Question:
-- What is the project
-- Whats the purpose
-- What are key components
-- What technology used and how it is used
+The AireLiners online bus reservation system is a multi-page website designed to simplify bus seat booking for customers.  Featuring a visually appealing and responsive design with interactive navigation and scrolling, the system allows users to conveniently book seats from anywhere, improving transportation accessibility and efficiency while enhancing the overall customer experience.
 
 ### Key Components
 <!-- TODO: List of Key Components -->
 <!-- The following are just sample -->
-- MultiPage Website/Single Page Website
-- Parallax transition
-- Transactional
+- Multipage Program
+- Scrolling Feature
+- Responsive and Interactive Navigational Buttons
+- Visually Appealing 
 
 ### Technology
 <!-- TODO: List of Technology Used -->
@@ -119,4 +114,7 @@ WD-ProjectName
 <!-- TODO: Add References -->
 | Title | Purpose | Link |
 |-|-|-|
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
+| AireLiners_icon | For the readme icon | canva.com |
+| bus_cover | For the background picture of the hero section | pinterest.com |
+| bus_image | For the logo of the website used in header | canva.com |
+| Inspiration | Used this as a reference guide | victoryliner.com |
