@@ -2,14 +2,16 @@
     width: 100%;
     height: 6rem;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    background: linear-gradient(to left, #231200 0%, #281602 59%);
+    background: linear-gradient(to left, #c54e1a 0%, #cb812b 59%);
     z-index: 999;
-}
+
+  }
 
 .header .div {
     align-items: center;
@@ -29,7 +31,7 @@
     flex-grow: 1;
     font-size: 35px;
     padding-right: 80px;
-    font-family: "sigmar one", serif;
+    font-family: "Sigmar One", serif;
     font-style: normal;
     min-width: 25rem;
     cursor: pointer;
@@ -51,18 +53,18 @@
 
 #checkbox {
     display: none;
-}
+  }
 
-.toggle {
+  .toggle {
     position: relative;
     width: 40px;
     cursor: pointer;
     margin: auto;
     display: block;
     height: calc(4px * 3 + 11px * 2);
-}
+  }
 
-.bar {
+  .bar {
     position: absolute;
     left: 0;
     right: 0;
@@ -72,40 +74,40 @@
     color: inherit;
     opacity: 1;
     transition: none 0.35s cubic-bezier(.5,-0.35,.35,1.5) 0s;
-}
+  }
 
-.bar--top {
-    bottom: calc(50% + 11px) + 4px/2;
-    transition-property: bottom, transform;
+  .bar--top {
+    bottom: calc(50% + 11px + 4px/ 2);
+    transition-property: bottom,transform;
     transition-delay: calc(0s + 0.35s),0s;
-}
+  }
 
-.bar--middle {
-    top: calc(50% - 4px/2);
+  .bar--middle {
+    top: calc(50% - 4px/ 2);
     transition-property: opacity;
     transition-delay: calc(0s + 0.35s);
-}
+  }
 
-.bar--bottom {
-    top: calc (50% + 11px + 4px/2);
-    transition-property: top, transform;
+  .bar--bottom {
+    top: calc(50% + 11px + 4px/ 2);
+    transition-property: top,transform;
     transition-delay: calc(0s + 0.35s),0s;
-}
+  }
 
-#checkbox:checked + .toggle .bar--top {
-    bottom: calc(50% - 4px/2);
+  #checkbox:checked + .toggle .bar--top {
+    bottom: calc(50% - 4px/ 2);
     transform: rotate(135deg);
-    transition-delay: 0s, calc(0s + 0.35s);
-}
+    transition-delay: 0s,calc(0s + 0.35s);
+  }
 
-#checkbox:checked + .toggle .bar--middle {
+  #checkbox:checked + .toggle .bar--middle {
     opacity: 0;
     transition-duration: 0s;
     transition-delay: calc(0s + 0.35s);
-}
+  }
 
-#checkbox:checked + .toggle .bar--bottom {
-    top: calc(50% - 4px/2);
+  #checkbox:checked + .toggle .bar--bottom {
+    top: calc(50% - 4px/ 2);
     transform: rotate(225deg);
-    transition-delay: 0s, calc(0s + 0.35s);
-}
+    transition-delay: 0s,calc(0s + 0.35s);
+  }

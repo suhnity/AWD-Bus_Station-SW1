@@ -2,12 +2,12 @@
     margin-left: -10px;
     margin-right: -10px;
     height: 20rem;
-    background-color: #000000;
+    background-color: black;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'cantora one', sans-serif;
+    font-family: 'Cantora One', sans-serif;
     padding: 1rem;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .footer_links a {
-    color: rgb(255, 255, 255);
+    color: white;
     text-decoration: none;
     margin: 0 15px;
     font-size: 14px;
@@ -36,5 +36,5 @@
 }
 
 .footer_links a:hover {
-    color: #967354;
+    color: #e67e22;
 }
