@@ -18,103 +18,101 @@
     <link href="https://fonts.googleapis.com/css2?family=Cantora+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="header">
-            <div class="logo">
-                <img src="./assets/img/bus_image.png" alt="Aire Liner Logo">
-            </div>
-            <div class="web_name">
-                <a href="./index.html"><h2>AIRE LINER</h2></a>
-            </div>
-            <div class="menu_button">
-                <input type="checkbox" id="checkbox">
-                <label for="checkbox" class="toggle">
-                    <div class="bar bar--top"></div>
-                    <div class="bar bar--middle"></div>
-                    <div class="bar bar--bottom"></div>
-                </label>
+<header>
+    <div class="header">
+        <div class="logo">
+            <img src="./assets/img/bus_image.png" alt="Aire Lanes Logo">
+        </div>
+        <div class="web_name">
+            <a href="./index.html"><h2>AIRE LINER</h2></a>
+        </div>
+        <div class="menu_button">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox" class="toggle">
+                <div class="bar bar--top"></div>
+                <div class="bar bar--middle"></div>
+                <div class="bar bar--bottom"></div>
+            </label>
         </div>
     </div>
 </header>
 
 <section class="cover_section">
     <div class="cover">
-        <img src="./assets/img/bus_cover.png" alt="Aire Liner Cover">
-    class+"bus_cover">
+        <img src="./assets/img/bus_cover.jpg" alt="Aire Lanes Cover" class="bus_cover">
         <div class="cover_text">
-            <h1>Magandang buhay!</h1>
-            <h2>Gusto mo bang pumunta sa Baguio, Dagupan, o Zambales?</h2>
+            <h2>Gusto mo bang pumunta sa Baguio, Dagupan, at Zambales?</h2>
         </div>
     </div>
 </section>
 
 <section class="search_seat">
-    <div class="searchseat">
-        <!-- Round-trip and One-way checkboxes -->
-        <label class="checkBox">
-            <input type="checkbox" id="roundTrip">
-            <div class="transition"></div>
-            <span class="label-text">Round-trip</span>
-        </label>
-        <label class="checkBox">
-            <input type="checkbox" id="oneWay">
-            <div class="transition"></div>
-            <span class="label-text">One-way</span>
-        </label>
+        <div class="searchseat">
+            <!-- Round-trip and One-way checkboxes -->
+            <label class="checkBox">
+                <input type="checkbox" id="roundTrip">
+                <div class="transition"></div>
+                <span class="label-text">Round-trip</span>
+            </label>
+            <label class="checkBox">
+                <input type="checkbox" id="oneWay">
+                <div class="transition"></div>
+                <span class="label-text">One-way</span>
+            </label>
 
-        <!-- Departure and Destination dropdowns -->
-        <div class="location-selection">
-            <div class="location-item">
-                <select id="departure">
-                    <option value="" selected disabled>Departure</option>
-                    <option value="Cubao">Cubao</option>
-                    <option value="Sampaloc">Sampaloc</option>
-                    <option value="Pasay">Pasay</option>
-                    <option value="Caloocan">Caloocan</option>
-                    <option value="PITX">PITX</option>
-                </select>
+            <!-- Departure and Destination dropdowns -->
+            <div class="location-selection">
+                <div class="location-item">
+                    <select id="departure">
+                        <option value="" selected disabled>Departure</option>
+                        <option value="Cubao">Cubao</option>
+                        <option value="Sampaloc">Sampaloc</option>
+                        <option value="Pasay">Pasay</option>
+                        <option value="Caloocan">Caloocan</option>
+                        <option value="PITX">PITX</option>
+                    </select>
+                </div>
+                <div class="location-item">
+                    <select id="destination">
+                        <option value="" selected disabled>Destination</option>
+                        <option value="Baguio">Baguio</option>
+                        <option value="Alaminos">Alaminos</option>
+                        <option value="Dagupan">Dagupan</option>
+                        <option value="Bolinao">Bolinao</option>
+                        <option value="Zambales">Zambales</option>
+                    </select>
+                </div>
             </div>
-            <div class="location-item">
-                <select id="destination">
-                    <option value="" selected disabled>Destination</option>
-                    <option value="Baguio">Baguio</option>
-                    <option value="Alaminos">Alaminos</option>
-                    <option value="Dagupan">Dagupan</option>
-                    <option value="Bolinao">Bolinao</option>
-                    <option value="Zambales">Zambales</option>
-                </select>
+
+            <!-- Depart and Return datepickers -->
+            <div class="datepassenger">
+                <div class="datepick">
+                    <span class="depart" id="depart-date">Depart
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-calendar-fill" viewBox="0 0 16 16">
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 3v12h14V3H1z"/>
+                        </svg>
+                    </span>
+                    <span class="return" id="return-date">Return
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-calendar-fill" viewBox="0 0 16 16">
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 3v12h14V3H1z"/>
+                        </svg>
+                    </span>
+                </div>
+
+                <div class="passenger-selector">
+                    <span class="passenger-label">Passenger:</span>
+                    <button class="passenger-btn" id="decrease">-</button>
+                    <span class="passenger-count" id="passenger-count">1</span>
+                    <button class="passenger-btn" id="increase">+</button>
+                </div>
+            </div>
+
+            <!-- Search Button next to datepicker -->
+            <div class="search_button">
+                <a href="./pages/page1/index.html"><button class="button">Search</button></a>
             </div>
         </div>
-
-    <!-- Depart and Return datepickers -->
-    <div class="datepassenger">
-        <div class="datepick">
-            <span class="depart" id="depart-date">Depart
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 3v12h14V3H1z"/>
-                </svg>
-            </span>
-            <span class="return" id="return-date">Return
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 3v12h14V3H1z"/>
-                </svg>
-            </span>
-        </div>
-
-        <div class="passenger-selector">
-            <span class="passenger-label">Passenger:</span>
-            <button class="passenger-btn" id="decrease">-</button>
-            <span class="passenger-count" id="passenger-count">1</span>
-            <button class="passenger-btn" id="increase">+</button>
-        </div>
-    </div>
-
-       <!-- Search Button next to datepicker -->
-       <div class="search_button">
-        <a href="./pages/page1/index.html"><button class="button">Search</button></a>
-    </div>
-</div>
-</section>
+    </section>
 
     <!-- Calendar -->
     <div class="container calendar-container" id="calendar-container" style="display: none;">
@@ -142,20 +140,20 @@
         </div>
     </div>
 
-    <footer class="footer_section">
-        <div class="footer_content">
-            <div class="footer_text">
-                <p>&copy; 2025 Aire Liner. All rights reserved.</p>
-            </div>
-            <div class="footer_links">
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-            </div>
+<footer class="footer_section">
+    <div class="footer_content">
+        <div class="footer_text">
+            <p>&copy; 2025 Aire Lanes. All rights reserved.</p>
         </div>
-    </footer>
-    
-    <script src="./assets/js/script.js"></script>
-    </body>
-    </html>
+        <div class="footer_links">
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </div>
+</footer>
+
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
