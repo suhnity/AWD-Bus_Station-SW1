@@ -2,7 +2,7 @@
     margin-left: -10px;
     margin-right: -10px;
     height: 20rem;
-    background-color: black;
+    background-color: #000000;
     color: white;
     display: flex;
     justify-content: center;
@@ -14,9 +14,9 @@
 .footer_content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 80%;
     max-width: 1200px;
+    align-items: center;
 }
 
 .footer_logo img {
@@ -28,7 +28,7 @@
 }
 
 .footer_links a {
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     margin: 0 15px;
     font-size: 14px;
@@ -36,5 +36,5 @@
 }
 
 .footer_links a:hover {
-    color: #e67e22;
+    color: #967354;
 }

@@ -35,8 +35,8 @@
 
 .location-item label {
     font-size: 14px;
-    color: #333;
     font-weight: bold;
+    color: #333;
 }
 
 .location-item select {
@@ -76,8 +76,8 @@
     background-color: white;
     border: 2px solid rgb(224, 22, 22);
     border-radius: 5px;
-    cursor: pointer;
     outline: none;
+    cursor: pointer;
     transition: 0.3s ease;
 }
 
@@ -87,8 +87,8 @@
 
 .checkBox .label-text {
     font-size: 16px;
-    color: #000;
     font-family: 'cantora one', sans-serif;
+    color: #000;
 }
 
 .container .calendar-container {
@@ -154,7 +154,6 @@ pre {
     color: #000;
     width: 140px;
     padding: 10px;
-    border-radius: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background: #f9f9f9;

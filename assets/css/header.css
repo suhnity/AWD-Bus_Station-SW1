@@ -8,7 +8,7 @@
     top: 0;
     left: 0;
     background: linear-gradient(to left, #231200 0%, #281602 59%);
-    z-index: #999;
+    z-index: 999;
 }
 
 .header .div {
@@ -16,8 +16,8 @@
 }
 
 .logo img {
-    height: 130px; /* size of logo */
-    width: auto; /*aspect ratio*/
+    height: 130px;
+    width: auto;
     padding-left: 120px;
     transform: scaleX();
 }
@@ -26,6 +26,7 @@
     letter-spacing: 2px;
     color: #ffffff;
     text-align: center;
+    flex-grow: 1;
     font-size: 35px;
     padding-right: 80px;
     font-family: "sigmar one", serif;
@@ -72,8 +73,6 @@
     opacity: 1;
     transition: none 0.35s cubic-bezier(.5,-0.35,.35,1.5) 0s;
 }
-
-/* spin animation */
 
 .bar--top {
     bottom: calc(50% + 11px) + 4px/2;
