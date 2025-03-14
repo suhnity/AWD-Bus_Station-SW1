@@ -2,10 +2,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const seats = document.querySelectorAll(".seat");
     const seatInfo = document.querySelector(".seat-info h5");
     const seatSelectedInfo = document.querySelector(".seat-selected-info");
-    let passengerCount = parseInt(localStorage.getItem("passengerCount"));
+    let passengerCount = parseInt(localStorage.getItem("passengerCount")) || 1;
     let selectedSeats = [];
 
+    const reservedSeats = JSON.parse(localStorage.getItem("reservedSeats")) || [];
+
     seatInfo.textContent = "Seat: ";
+
+    function initializeSeats() {
+        reservedSeats.forEach(seatIndex => {
+            const seat = document.querySelector(`.seat[data-index="${seatIndex}"]`);
+            if (seat) {
+                seat.classList.add("reserved");
+                seat.style.backgroundColor = "#FF0000";
+            }
+        });
+
+        const storedSelectedSeats = JSON.parse(localStorage.getItem("selectedSeats")) || [];
+        storedSelectedSeats.forEach(seatIndex => {
+            if (!reservedSeats.includes(seatIndex)) {
+                const seat = document.querySelector(`.seat[data-index="${seatIndex}"]`);
+                if (seat) {
+                    seat.classList.add("selected");
+                    selectedSeats.push(seatIndex);
+                }
+            }
+        });
+
+        updateSelectedSeatsDisplay();
+    }
 
     function updateSeatInfo(event) {
         const seatIndex = parseInt(event.target.dataset.index);
@@ -15,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function toggleSeatSelection(event) {
         const seat = event.target;
         const seatIndex = parseInt(seat.dataset.index);
+
+        if (reservedSeats.includes(seatIndex) || seat.classList.contains("reserved")) {
+            return;
+        }
 
         if (selectedSeats.includes(seatIndex)) {
             selectedSeats = selectedSeats.filter(index => index !== seatIndex);
@@ -39,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateSelectedSeatsDisplay() {
         if (selectedSeats.length > 0) {
-            seatSelectedInfo.textContent = `Seat Selected: ${selectedSeats.join(', ')}`;
+            seatSelectedInfo.textContent = `Seat Selected: ${selectedSeats.map(index => index + 1).join(', ')}`;
         } else {
             seatSelectedInfo.textContent = "Seat Selected: None";
         }
@@ -50,13 +79,18 @@ document.addEventListener("DOMContentLoaded", function () {
         seat.addEventListener("click", toggleSeatSelection);
     });
 
-    updateSelectedSeatsDisplay();
+    initializeSeats();
 
     const reserveButton = document.querySelector(".reserve_button");
     const paymentPopup = document.querySelector(".payment_popup");
     const totalPriceElement = document.getElementById("totalPrice");
 
     reserveButton.addEventListener("click", function () {
+        if (selectedSeats.length === 0) {
+            alert("Please select at least one seat.");
+            return;
+        }
+
         const departure = localStorage.getItem("departure");
         const destination = localStorage.getItem("destination");
         const routeKey = `${departure}-${destination}`;
@@ -69,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         const basePrice = prices[routeKey] || 0;
-        const totalPrice = basePrice * passengerCount;
+        const totalPrice = basePrice * selectedSeats.length;
 
         totalPriceElement.textContent = `₱${totalPrice.toFixed(2)}`;
         paymentPopup.style.display = "flex";
@@ -83,9 +117,24 @@ document.addEventListener("DOMContentLoaded", function () {
         const totalPrice = parseFloat(totalPriceElement.textContent.replace('₱', '').replace(',', ''));
 
         if (paymentAmount >= totalPrice) {
-            localStorage.setItem("reservedSeats", JSON.stringify(selectedSeats));
+            const updatedReservedSeats = [...reservedSeats, ...selectedSeats];
+            localStorage.setItem("reservedSeats", JSON.stringify(updatedReservedSeats));
+
+            selectedSeats.forEach(seatIndex => {
+                const seat = document.querySelector(`.seat[data-index="${seatIndex}"]`);
+                if (seat) {
+                    seat.classList.remove("selected");
+                    seat.classList.add("reserved");
+                    seat.style.backgroundColor = "#FF0000";
+                }
+            });
+
+            selectedSeats = [];
+            localStorage.setItem("selectedSeats", JSON.stringify(selectedSeats));
+
             alert("Payment Successful! Your seats are reserved.");
             paymentPopup.style.display = "none";
+            updateSelectedSeatsDisplay();
         } else {
             alert("Insufficient payment. Please enter the correct amount.");
         }
